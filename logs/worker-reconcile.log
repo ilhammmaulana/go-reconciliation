@@ -1,0 +1,12 @@
+[INFO]  2026/10/20 14:40:56 main.go:37: === Go Reconciliation Engine ===
+[INFO]  2026/10/20 14:40:56 main.go:38: Mode: reconcile | PID: 371767
+[INFO]  2026/10/20 14:40:56 main.go:73: Concurrency: 5 workers
+[INFO]  2026/10/20 14:40:56 mysql.go:36: Connected to MySQL: 127.0.0.1/anihost_reconcile_test_2
+[INFO]  2026/10/20 14:40:56 redis.go:84: Connected to Redis: 127.0.0.1:6379 DB=0
+[INFO]  2026/10/20 14:40:56 main.go:112: Listening on queue: reconcile
+[INFO]  2026/10/20 14:40:56 main.go:138: [WORKER-5] Reconcile worker started on queue=reconcile
+[INFO]  2026/10/20 14:40:56 main.go:138: [WORKER-2] Reconcile worker started on queue=reconcile
+[INFO]  2026/10/20 14:40:56 main.go:138: [WORKER-3] Reconcile worker started on queue=reconcile
+[INFO]  2026/10/20 14:40:56 main.go:138: [WORKER-1] Reconcile worker started on queue=reconcile
+[INFO]  2026/10/20 14:40:56 main.go:138: [WORKER-4] Reconcile worker started on queue=reconcile
+[INFO]  2026/10/20 14:40:58 main.go:103: Received signal terminated — shutting down gracefully...

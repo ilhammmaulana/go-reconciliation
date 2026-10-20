@@ -1,0 +1,17 @@
+# Environment files
+.env
+*.env
+!.env.example
+
+# Compiled binaries & build artifacts
+bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test artifacts
+coverages/
+*.out
+*.test

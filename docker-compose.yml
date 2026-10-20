@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  go-reconciliation:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: go-reconciliation-engine
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - APP_ENV=production
+      - APP_PORT=8080
+      - DB_HOST=host.docker.internal
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=${DB_PASSWORD:-secret}
+      - DB_DATABASE=reconciliation
+      - ENABLE_MYSQL_JOBS_POLLING=true
+      - MYSQL_JOBS_QUEUE_NAME=go_grouping
+      - JOBS_POLL_INTERVAL_SECONDS=5
+      - ENABLE_REDIS_QUEUE=false
+      - REDIS_HOST=host.docker.internal
+      - REDIS_PORT=6379
+      - REDIS_QUEUE_NAME=go_grouping
+      - NAS_HOME_PATH=/nas
+      - EXTRACT_PATH=/extract
+      - MAX_CONCURRENT_FILES=8
+      - POLL_INTERVAL_SECONDS=5
+    volumes:
+      # Mount NAS incoming directory
+      - /mount/nas:/nas
+      # Mount shared extract storage with Laravel
+      - /mount/Workspace/Projects/reconciliation/storage/app/extract:/extract
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"

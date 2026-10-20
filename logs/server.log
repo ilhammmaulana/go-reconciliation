@@ -1,0 +1,27 @@
+2026/10/20 14:43:52 main.go:28: ==================================================
+2026/10/20 14:43:52 main.go:29:  Starting Go Reconciliation Ingestion Engine...
+2026/10/20 14:43:52 main.go:30: ==================================================
+2026/10/20 14:43:52 main.go:44: [MySQL] Connected successfully to database: anihost_reconcile_test_2
+2026/10/20 14:43:52 main.go:54: [Redis] Initialized Redis connection for queue: go_grouping
+2026/10/20 14:43:52 pool.go:66: [Startup Recovery] Checking MySQL for pending or interrupted jobs...
+2026/10/20 14:43:52 pool.go:75: [Startup Recovery] No interrupted jobs found. System state is clean.
+2026/10/20 14:43:52 queue_consumer.go:48: [MySQL Jobs Poller] Polling table 'jobs' every 5 seconds for queue: 'go_grouping'
+2026/10/20 14:43:52 pool.go:113: [WorkerPool] Background NAS Poller started
+2026/10/20 14:43:52 pool.go:129: [WorkerPool] Fast HTTP / Job Consumer started
+2026/10/20 14:43:52 main.go:117: [HTTP Server] Listening on http://0.0.0.0:6983
+2026/10/20 14:43:52 main.go:119: [HTTP Error] listen tcp :6983: bind: address already in use
+2026/10/20 14:44:15 main.go:28: ==================================================
+2026/10/20 14:44:15 main.go:29:  Starting Go Reconciliation Ingestion Engine...
+2026/10/20 14:44:15 main.go:30: ==================================================
+2026/10/20 14:44:15 main.go:44: [MySQL] Connected successfully to database: anihost_reconcile_test_2
+2026/10/20 14:44:15 main.go:54: [Redis] Initialized Redis connection for queue: go_grouping
+2026/10/20 14:44:15 pool.go:66: [Startup Recovery] Checking MySQL for pending or interrupted jobs...
+2026/10/20 14:44:15 pool.go:75: [Startup Recovery] No interrupted jobs found. System state is clean.
+2026/10/20 14:44:15 queue_consumer.go:48: [MySQL Jobs Poller] Polling table 'jobs' every 5 seconds for queue: 'go_grouping'
+2026/10/20 14:44:15 queue_consumer.go:133: [Redis Consumer] Listening for jobs on Redis keys: [queues:go_grouping queue:go_grouping go_grouping]
+2026/10/20 14:44:15 pool.go:113: [WorkerPool] Background NAS Poller started
+2026/10/20 14:44:15 pool.go:129: [WorkerPool] Fast HTTP / Job Consumer started
+2026/10/20 14:44:15 main.go:117: [HTTP Server] Listening on http://0.0.0.0:6983
+2026/10/20 14:44:19 main.go:128: [Shutdown] Received termination signal. Shutting down gracefully...
+2026/10/20 14:44:19 pool.go:118: [WorkerPool] Stopping NAS Poller...
+2026/10/20 14:44:19 queue_consumer.go:53: [MySQL Jobs Poller] Stopping...

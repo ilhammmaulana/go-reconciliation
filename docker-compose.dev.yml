@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  go-reconciliation-dev:
+    image: golang:1.22-alpine
+    container_name: go-reconciliation-dev
+    working_dir: /app
+    ports:
+      - "8080:8080"
+    environment:
+      - APP_ENV=development
+      - APP_PORT=8080
+      - DB_HOST=host.docker.internal
+      - DB_PORT=3306
+      - DB_USERNAME=root
+      - DB_PASSWORD=${DB_PASSWORD:-secret}
+      - DB_DATABASE=reconciliation
+      - ENABLE_MYSQL_JOBS_POLLING=true
+      - MYSQL_JOBS_QUEUE_NAME=go_grouping
+      - JOBS_POLL_INTERVAL_SECONDS=5
+      - ENABLE_REDIS_QUEUE=false
+      - NAS_HOME_PATH=/nas
+      - EXTRACT_PATH=/extract
+      - MAX_CONCURRENT_FILES=4
+      - POLL_INTERVAL_SECONDS=5
+    volumes:
+      # Live mount source code (perubahan code langsung terbaca tanpa rebuild!)
+      - .:/app
+      # Mount NAS directory
+      - /mount/nas:/nas
+      # Mount shared extract storage with Laravel
+      - /mount/Workspace/Projects/reconciliation/storage/app/extract:/extract
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: sh -c "go mod tidy && go run ./cmd/server/main.go"
